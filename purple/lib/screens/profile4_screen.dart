@@ -24,89 +24,91 @@ class Profile4Screen extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Divider(
-              color: Color.fromARGB(255, 230, 230, 230),
-            ),
-            SizedBox(height: 5),
-            const Text(
-              "프로필 작성하기",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: Color(0xff665e72),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Divider(
+                color: Color.fromARGB(255, 230, 230, 230),
               ),
-              textAlign: TextAlign.left,
-            ),
-            const SizedBox(height: 20),
-            Divider(
-              color: Color(0xFFBB85FF),
-              thickness: 3.5,
-              endIndent: 136,
-            ),
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.0),
-                    child: Text(
-                      '어떤 자격증을 가지고 계신가요?',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                        contentPadding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                        border: OutlineInputBorder(),
-                        hintText: '지니고 계신 자격증을 알려주세요 :)'),
-                    onChanged: (value) {
-                      license = value;
-                      data['license'] = license;
-                    },
-                  ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.0),
-                    child: Text(
-                      '수상경력이 있으신가요?',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                        contentPadding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                        border: OutlineInputBorder(),
-                        hintText: '있으시면 알려주세요 :)'),
-                  ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10.0),
-                    child: Text(
-                      '어학 점수가 몇 점이신가요?',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                        contentPadding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                        border: OutlineInputBorder(),
-                        hintText: '있으시면 알려주세요 :)'),
-                  ),
-                ],
+              SizedBox(height: 5),
+              const Text(
+                "프로필 작성하기",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff665e72),
+                ),
+                textAlign: TextAlign.left,
               ),
-            )
-          ],
+              const SizedBox(height: 20),
+              Divider(
+                color: Color(0xFFBB85FF),
+                thickness: 3.5,
+                endIndent: 136,
+              ),
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10.0),
+                      child: Text(
+                        '어떤 자격증을 가지고 계신가요?',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          contentPadding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                          border: OutlineInputBorder(),
+                          hintText: '지니고 계신 자격증을 알려주세요 :)'),
+                      onChanged: (value) {
+                        license = value;
+                        data['license'] = license;
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10.0),
+                      child: Text(
+                        '수상경력이 있으신가요?',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          contentPadding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                          border: OutlineInputBorder(),
+                          hintText: '있으시면 알려주세요 :)'),
+                    ),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10.0),
+                      child: Text(
+                        '어학 점수가 몇 점이신가요?',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          contentPadding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                          border: OutlineInputBorder(),
+                          hintText: '있으시면 알려주세요 :)'),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Padding(

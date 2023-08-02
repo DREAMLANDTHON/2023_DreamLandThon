@@ -8,21 +8,18 @@ class Login extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 35,
-              vertical: 8,
-            ),
-            child: Text(
-              'PERPL',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'PottaOneRegular',
-                color: Theme.of(context).primaryColor,
-              ),
+          title: Text(
+            'PERPL',
+            style: TextStyle(
+              fontSize: 30,
+              color: Color(0xFFBB85FF),
+              fontFamily: "PottaOneRegular",
+              fontWeight: FontWeight.bold,
             ),
           ),
+          elevation: 0,
+          backgroundColor: Colors.white,
+          centerTitle: true,
         ),
         body: Center(
           child: Text(

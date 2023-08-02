@@ -87,7 +87,7 @@ class _Profile2ScreenState extends State<Profile2Screen> {
                             onPressed: () {
                               setState(() {
                                 isMajor = true;
-                                data['isMajor'] = "true";
+                                data['isMajor'] = "맞아";
                               });
                             },
                             style: ElevatedButton.styleFrom(
@@ -111,7 +111,7 @@ class _Profile2ScreenState extends State<Profile2Screen> {
                             onPressed: () {
                               setState(() {
                                 isMajor = false;
-                                data['isMajor'] = "false";
+                                data['isMajor'] = "아니야";
                               });
                             },
                             style: ElevatedButton.styleFrom(
@@ -197,7 +197,7 @@ class _Profile2ScreenState extends State<Profile2Screen> {
                           }).toList(),
                           onChanged: (value) {
                             whatCollege = value!;
-                            data['whatCollege'] = finalEdBackground;
+                            data['whatCollege'] = whatCollege;
                             setState(() {
                               selectedCollegeItem = value;
                             });

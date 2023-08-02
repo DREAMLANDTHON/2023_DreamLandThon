@@ -59,7 +59,7 @@ class ResultPage extends StatelessWidget {
               .split('\n')
               .where((line) => line.trim().isNotEmpty)
               .toList();
-          String prom = lines[text];
+          String prom = lines[text - 1];
           String result2 = await generateText2(prom, prompt1);
           Navigator.push(
             context,
@@ -69,7 +69,9 @@ class ResultPage extends StatelessWidget {
           );
         },
         style: ElevatedButton.styleFrom(
-          primary: isPurple ? Color(0xFFBB85FF) : Colors.grey,
+          primary: isPurple
+              ? Color(0xFFBB85FF)
+              : const Color.fromARGB(255, 213, 213, 213),
           elevation: 0, // Remove the shadow by setting elevation to 0
           shape: RoundedRectangleBorder(),
         ),
@@ -107,7 +109,7 @@ class ResultPage extends StatelessWidget {
               .split('\n')
               .where((line) => line.trim().isNotEmpty)
               .toList();
-          String prom = lines[text];
+          String prom = lines[text - 1];
           String result2 = await generateText2(prom, prompt1);
           Navigator.push(
             context,
@@ -119,7 +121,9 @@ class ResultPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(7.0),
         child: Ink(
           decoration: BoxDecoration(
-            color: isPurple ? Color(0xFFBB85FF) : Colors.grey,
+            color: isPurple
+                ? Color(0xFFBB85FF)
+                : const Color.fromARGB(255, 213, 213, 213),
           ),
           child: Center(
             // 아이콘을 버튼 내에 가운데 정렬하기 위해 Center 위젯 사용
@@ -190,16 +194,18 @@ class ResultPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            'PERPL',
-            style: TextStyle(
-              fontFamily: 'PottaOneRegular',
-              color: Theme.of(context).primaryColor,
-            ),
+        title: Text(
+          'PERPL',
+          style: TextStyle(
+            fontSize: 30,
+            color: Color(0xFFBB85FF),
+            fontFamily: "PottaOneRegular",
+            fontWeight: FontWeight.bold,
           ),
         ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -238,9 +244,9 @@ class ResultPage extends StatelessWidget {
                   mainAxisAlignment:
                       MainAxisAlignment.start, // 버튼들이 왼쪽으로 정렬되어 한 줄로 보이도록 설정
                   children: [
-                    buildButton(1, () {}, true, context),
-                    buildButton(2, () {}, true, context),
-                    buildButton(3, () {}, true, context),
+                    buildButton(1, () {}, false, context),
+                    buildButton(2, () {}, false, context),
+                    buildButton(3, () {}, false, context),
                   ],
                 ),
               ],
@@ -253,9 +259,9 @@ class ResultPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start, // 왼쪽 정렬
                     mainAxisAlignment: MainAxisAlignment.start, // 위쪽 정렬 추가
                     children: [
-                      buildButton2(4, () {}, false, context),
-                      buildButton2(5, () {}, false, context),
-                      buildButton2(6, () {}, false, context),
+                      buildButton2(12, () {}, false, context),
+                      buildButton2(11, () {}, false, context),
+                      buildButton2(10, () {}, false, context),
                     ],
                   ),
                 ),
@@ -344,9 +350,9 @@ class ResultPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end, // 오른쪽 정렬
                     mainAxisAlignment: MainAxisAlignment.start, // 위쪽 정렬 추가
                     children: [
-                      buildButton2(10, () {}, true, context),
-                      buildButton2(11, () {}, true, context),
-                      buildButton2(12, () {}, true, context),
+                      buildButton2(4, () {}, false, context),
+                      buildButton2(5, () {}, false, context),
+                      buildButton2(6, () {}, false, context),
                     ],
                   ),
                 ),
@@ -359,9 +365,9 @@ class ResultPage extends StatelessWidget {
                   mainAxisAlignment:
                       MainAxisAlignment.start, // 버튼들이 왼쪽으로 정렬되어 한 줄로 보이도록 설정
                   children: [
+                    buildButton(9, () {}, false, context),
+                    buildButton(8, () {}, false, context),
                     buildButton(7, () {}, false, context),
-                    buildButton(8, () {}, true, context),
-                    buildButton(9, () {}, true, context),
                   ],
                 ),
               ],
@@ -409,9 +415,9 @@ class ResultPage extends StatelessWidget {
 Future<String> generateText2(String prompt, String prompt1) async {
   String prom = "";
   if (prompt.contains("자격증")) {
-    prom = "$prompt1 직종 관련 한국 자격증을 알려줘.";
+    prom = "$prompt1 관련 자격증 5개만 알려줘.";
   } else {
-    prom = "$prompt 를 하려는데 알려줘. 근데 오타없이 키워드만 간단히.";
+    prom = "$prompt를 할건데, 번호 매겨서 키워드만 알려줘";
   }
   final response = await http.post(
     Uri.parse(apiUrl!),

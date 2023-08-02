@@ -9,10 +9,7 @@ class Profile1Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     String wishJob = '';
     String wishCompanyType = '';
-    Map<String, String> data = {
-      'wishJob': wishJob,
-      'wishCompanyType': wishCompanyType,
-    };
+    Map<String, String> data = {};
 
     return Scaffold(
       appBar: AppBar(
@@ -74,6 +71,7 @@ class Profile1Screen extends StatelessWidget {
                         hintText: '희망 직종을 입력해주세요 :)'),
                     onChanged: (value) {
                       wishJob = value;
+                      data["wishJob"] = wishJob;
                     },
                   ),
                   const SizedBox(height: 30),
@@ -93,6 +91,7 @@ class Profile1Screen extends StatelessWidget {
                         hintText: '희망 기업의 종류를 입력해주세요 :)'),
                     onChanged: (value) {
                       wishCompanyType = value;
+                      data["wishCompanyType"] = wishCompanyType;
                     },
                   ),
                 ],

@@ -13,16 +13,18 @@ class LineDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            'PERPL',
-            style: TextStyle(
-              fontFamily: 'PottaOneRegular',
-              color: Theme.of(context).primaryColor,
-            ),
+        title: Text(
+          'PERPL',
+          style: TextStyle(
+            fontSize: 30,
+            color: Color(0xFFBB85FF),
+            fontFamily: "PottaOneRegular",
+            fontWeight: FontWeight.bold,
           ),
         ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
